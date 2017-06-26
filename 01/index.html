@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+
+
+<script> console.log("inner script");
+//"use strict";
+
+//a = 100;
+//a = 200;
+//console.log(a);
+
+var a = "string";
+console.log(typeof a);
+var a = 200;
+console.log(typeof a);
+
+var b;
+console.log(typeof b);
+var c = ["asd", 109, 3.14, true, [], {}];
+c[100] = "jlasjklasjldkasj";
+console.log(typeof  c);
+console.log(c);
+
+console.log(5 === '5');
+console.log(5 !== '5');
+
+// false | 0 | '' | undefined | null | NaN
+
+if ("adsdasd") {
+    console.log("+");
+} else {
+    console.log("-");
+}
+
+
+//console.log("asdasdad"/[]);
+
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+const cnst = 100;
+
+var mas = [1, 2, 3];
+for (let m of mas) {
+    console.log(m);
+}
+
+var p = {
+    name: 'vasya',
+    age: 90,
+    wife: {
+        name: "olya",
+        age: 190
+    }
+};
+p.surname = "pupkoin";
+console.log(p);
+console.log(p.wife.age);
+
+console.log(p['wife']);
+for (var x in p) {
+    console.log(p[x]);
+}
+
+//alert("asdasdasd");
+//console.log(typeof prompt("asdasd"));
+try {
+
+} catch (e) {
+    e.name
+}
+//console.log(confirm("asdas"));;
+function asd() {
+    console.log("asdasdasdas");
+}
+
+asd();
+console.log(asd);
+var qwe = asd;
+qwe();
+
+(function () {
+    console.log("self invoke");
+}());
+
+var foo = function () {
+    console.log("fooooo");
+    return undefined;
+};
+
+foo();
+
+console.log(foo());
+function bur() {
+    return 500;
+}
+console.log(bur());
+
+function bar(a, b) {
+    console.log(a, b);
+    console.log(arguments);
+    console.log(`${a} houdoyoudoooo ${b}`);
+
+}
+bar(1, 2, 3, 2, 4, 4, 4,);
+function asd(...s) {
+    console.log(s);
+}
+
+asd(1, 2, 3);
+function outer(a, callback) {
+    callback(a);
+}
+outer(10, function (aaaa) {
+    console.log(aaaa);
+});
+
+function outer() {
+    function inner() {
+        console.log("inndr");
+    }
+
+    inner();
+}
+
+outer();
+
+
+function outer() {
+
+    var xx = 0;
+
+    function inner() {
+        xx++;
+        return xx;
+    }
+
+    return inner;
+}
+//console.log(outer()());
+var xxx = outer();
+console.log(xxx());
+console.log(xxx());
+console.log(xxx());
+
+function asdasd(callback) {
+    callback(a,b);
+}
+
+
+asdasd(()=>{})
+
+</script>
+<!--<script src="main.js"></script>-->
+
+</body>
+</html>
