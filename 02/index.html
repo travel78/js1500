@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM</title>
+    <style>
+        li {
+            display: inline-block;
+            background: #000;
+        }
+    </style>
 </head>
-<body>
-<h1 id="trg1">hello</h1>
+<body><h1 id="trg1">hello</h1>
 <h2 id="trg1">hi</h2>
 <div class="point">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem ea eius error eum harum illo nulla
     placeat sequi sint. Accusantium ad alias beatae consectetur enim maxime natus numquam praesentium.
@@ -15,6 +20,135 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis cum est ex incidunt itaque quis sint
     voluptates. Aut autem eius, facere nostrum qui rem. Ad eos est optio quia.</p>
 
+<form name="forma1">
+    <input type="" name="in1">
+    <input type="" name="in2">
+</form>
+
+<table>
+    <tr>
+        <td>asd</td>
+        <td>asd</td>
+        <td>asd</td>
+    </tr>
+    <tr>
+        <td>asd</td>
+        <td>asd</td>
+        <td>asd</td>
+    </tr>
+</table>
+
+<ul>
+    <li>list1</li>
+
+
+    <li>
+        list2
+    </li>
+
+
+    <li>list3</li>
+</ul>
+
+<script>
+    console.log(document);
+    console.log(document.documentElement);
+    console.log(document.head);
+    console.log(document.body);
+    /**/
+    console.log(document.getElementById("trg1"));
+    console.log(document.getElementsByTagName("p"));
+    console.log(document.getElementsByClassName("point"));
+
+    var trg = document.getElementById("trg1");
+    trg.setAttribute("class", "xxx");
+    trg.style.background = 'red';
+    //    trg.innerHTML = "<p>qweqwew</p>";
+    trg.innerText = "<p>qweqwew</p>";
+    console.log(trg.getAttribute("id"));
+    /**/
+    console.log(document.body.childNodes);
+    console.log(document.body.children);
+    console.log(trg.nextElementSibling);
+    console.log(trg.previousElementSibling);
+    console.log(trg.previousSibling);
+
+    var myDIV = document.createElement("div");
+    myDIV.style.width = "200px";
+    myDIV.style.height = "200px";
+    myDIV.style.background = "red";
+    myDIV.innerHTML = "<h3>asdasdsad</h3>";
+    document.body.appendChild(myDIV);
+    document.body.insertBefore(myDIV.cloneNode(true), document.getElementById("trg1"));
+
+    var table = document.getElementsByTagName("table")[0];
+    console.log(table.rows);
+
+    var rows = table.rows;
+    console.log(rows[0].cells[0].innerText);
+
+
+    console.log(document.forms);
+    console.log(document.forms.forma1);
+    var forma1 = document.forms.forma1;
+    var elements = forma1.elements;
+    console.log(elements[1]);
+    console.log(elements.in1);
+
+    var person = {name: 'vasya', age: 30};
+    //    "{'name': 'vasya', 'age': 30}";
+    console.log(person);
+    var stringify = JSON.stringify(person);
+    console.log(JSON.parse(stringify));
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log(`${this.name} jhgadshdgasjdh ${this.age}`);
+        }
+    }
+
+    var p = new Person("kokok", 12312);
+    console.log(p);
+    p.say();
+
+    var someDude = {name: 'asdasda', age: 312};
+    p.say.call(someDude);
+    p.say.apply(someDude, []);
+    var Dev = function (name, age, skill) {
+        Person.apply(this, arguments);
+        this.skill = skill;
+    };
+    var dev = new Dev("asdasd", 12, "jaba");
+    console.log(dev);
+
+
+    class Person2 {
+        constructor(name = 'defname', age = 'defAge') {
+            this.name = name;
+            this.age = age;
+        }
+
+        static say() {
+            console.log("i am static function");
+        }
+
+        get  sname() {
+            return this.name;
+        }
+
+        set sname(asdad) {
+            this.name = asdad;
+        }
+    }
+
+    var pp = new Person2();
+    pp.sname = 'asdasd';
+    console.log(pp.sname);
+    console.log(pp.name = "asdasdas");
+
+
+</script>
 
 
 </body>
