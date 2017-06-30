@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #trg{
+           background: black;
+            width: 100px;
+            height: 100px;
+        }
+        #b1{
+            height: 400px;
+            width: 400px;
+            background: red;
+        }
+        #b2{
+            height: 300px;
+            width: 300px;
+            background: #9fff4a;
+        }
+        #b3{
+            height: 200px;
+            width: 200px;
+            background: #6da9ff;
+        }
+
+
+    </style>
+</head>
+<body>
+<button onclick=""></button>
+<div id="trg"></div>
+<hr>
+<div id="b1">
+    <div id="b2">
+        <div id="b3"></div>
+    </div>
+
+</div>
+<input type="text" id="inn">
+<p id="par"></p>
+<script>
+    let inn = document.getElementById("inn");
+    let par = document.getElementById("par");
+    inn.oninput=function () {
+        par.innerText = this.value;
+    }
+//    var trg = document.getElementById("trg");
+//    trg.onmouseover= function (e) {
+//        this.style.background = "red";
+//        console.log(e);
+//    }
+
+var trg = document.getElementById("trg");
+//trg.onmousemove=function (e) {
+//    this.style.background = `rgb(${e.pageX},${e.pageY},${e.pageX + e.pageY})`;
+//}
+    trg.onmousedown=function (emd) {
+        var self=this;
+        self.style.position = "absolute";
+        document.onmousemove=function (emm) {
+            self.style.top = emm.pageY + "px";
+            self.style.left = emm.pageX + "px";
+        }
+    }
+    trg.onmouseup=function () {
+        document.onmousemove = null;
+    }
+
+let b1 = document.getElementById("b1");
+let b2 = document.getElementById("b2");
+let b3 = document.getElementById("b3");
+b1.addEventListener('click', function () {
+    console.log("b1")
+}, true);
+b2.addEventListener('click', function () {
+    console.log("b2")
+}, true);
+b3.addEventListener('click', function () {
+    console.log("b3")
+}, true);
+
+
+
+</script>
+</body>
+</html>
