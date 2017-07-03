@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h1 id="head">hello</h1>
+<h1 id="head">hi!</h1>
+<div class="trg">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Aliquid aspernatur cumque neque placeat repellat repudiandae voluptate.
+    Architecto ea facilis, in ipsa itaque laborum maxime! Magni nam quod sequi vel voluptatum?
+</div>
+<div class="trg">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Adipisci aliquam asperiores beatae commodi culpa dignissimos et id,
+    illum laboriosam laudantium minima nisi provident quae quasi quo tempore vero. Quam, reiciendis?
+</div>
+
+<script>
+    var head = document.getElementById("head");
+    //    $(head);
+    let $head = $('#head');
+    $head.css("background", "red")
+        .css("color", "blue")
+        .width(300)
+        .height("300px")
+        .attr("class");
+
+    console.log($head.css("background"));
+    console.log($head);
+
+    let $div = $("body div");
+
+    var options = {
+        background: 'red',
+        color: 'green',
+        marginTop: 50
+    };
+    $div.css(options);
+
+    $("h1").css("font-size", function (i, prop) {
+        console.log(i, prop);
+        if ($(this).text().includes("hi")) return "3em"
+        else return 10;
+    });
+
+    $("div").css({
+        background: function () {
+            if ($(this).text().includes("elit")) return "black"
+            else return "yellow";
+        }, color: function () {
+            if ($(this).text().includes("velit")) return "silver"
+            else return "white";
+        }
+    });
+    $("*").filter(":odd").css("background", "white");
+
+    var $h2= $("<h2>yfgugu</h2>");
+    $("body").append($h2);
+    var $h= $('<p/>',{text:"ijj","color":"red"});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
