@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myAng">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+</head>
+<body ng-controller="main">
+
+<input type="" ng-model="xxx">
+<p ng-bind="xxx"></p>
+<h3 ng-init="a=10; b=20; p={name:'vasa',age=44}"></h3>
+<p>{{a}} {{b}}{{p}}</p>
+
+<div ng-controller="c1" >
+    {{test}}
+</div>
+<label for="">
+    <input type="radio" value="age" ng-model="con">
+</label>
+<label for="">
+    <input type="radio" value="name" ng-model="con">
+</label>
+<input type="checkbox" ng-model="tf">
+<input type="" ng-model="f">
+<ul>
+    <li ng-repeat="p in persons | filter : f | orderBy : con : tf">
+        {{$index+1}} {{p.name}} {{p.age}}</li>
+</ul>
+
+<hr>
+<a href="#!/hello">Say hello</a>
+<a href="#!/bye">Say bye</a>
+
+<div ng-view></div>
+<script>
+    var module=angular.module("myAng",['ngRoute']);
+    module.controller("c1",function ($scope) {
+        $scope.test = "go well";
+    })
+    module.controller("main",function ($scope) {
+        $scope.persons=[
+            {name:"olia", age:4},
+            {name:"petro", age:74},
+            {name:"vasia", age:23},
+            {name:"kolia", age:56},
+            {name:"hhh", age:27},
+            {name:"jjj", age:44}
+        ];
+    });
+
+    module.config(function ($routeProvider) {
+        $routeProvider.when("/hello",{
+            templateUrl: "hello.html",
+            controller:"c1"
+        });
+
+    });
+
+</script>
+</body>
+</html>
